@@ -51,4 +51,17 @@ feature 'posts' do
 
 	end
 
+	context 'deleting posts' do
+
+		let!(:google){ Post.create(title: 'Google', url: 'http://www.google.com')}
+
+		scenario 'removes a post when a user clicks delete' do
+			visit '/posts'
+			click_link 'Delete'
+			expect(page).not_to have_content 'Google'
+			expect(page).to have_content 'Post deleted successfully'
+		end
+
+	end
+
 end
