@@ -26,4 +26,17 @@ feature 'posts' do
 
 	end
 
+	context 'creating posts' do
+
+		scenario 'prompt user to fill a form, then display post' do
+			visit '/posts'
+			click_link 'Submit a new link'
+			fill_in 'Title', with: 'Google'
+			click_button 'Create Post'
+			expect(page).to have_content 'Google'
+			expect(current_path).to eq '/posts'
+		end
+
+	end
+
 end
