@@ -1,0 +1,8 @@
+<%= @post.title %>
+<%= @post.url %>
+
+<%= form_for [@post, @comment] do |f| %>
+	<%= f.label :thoughts %>
+	<%= f.text_area :thoughts %>
+	<%= f.submit 'Save' %>
+<% end %>

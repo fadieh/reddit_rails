@@ -1,2 +1,14 @@
-<%= @post.title %>
+<%= @post.title %><br>
 <%= @post.url %>
+
+<% if @post.comments.any? %>
+	<ul>
+		<% post.comments.each do |comment| %>
+		<li>
+			<%= comment.thoughts %>
+		</li>
+		<% end %>
+	</ul>
+	<% else %>
+	<p>No Comments</p>
+<% end %>
