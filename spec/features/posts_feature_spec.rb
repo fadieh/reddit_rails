@@ -51,6 +51,19 @@ feature 'posts' do
 
 	end
 
+	context 'showing a post' do
+
+		let!(:google){ Post.create(title: 'Google', url: 'http://www.google.com')}
+
+		scenario 'showing the comments page for a post' do
+			visit '/posts'
+			click_link 'Comments'
+			expect(page).to have_content 'Google'
+			expect(current_path).to eq "/posts/#{google.id}"
+		end
+
+	end
+
 	context 'deleting posts' do
 
 		let!(:google){ Post.create(title: 'Google', url: 'http://www.google.com')}

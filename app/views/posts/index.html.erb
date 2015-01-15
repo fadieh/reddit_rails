@@ -5,6 +5,7 @@
 <%= link_to "#{post.title}", post.url %><br>
 <%= post.url %>
 <%= link_to "Delete", post_path(post), method: :delete %>
+<%= link_to "Comments", post_path(post) %>
 <% end %>
 <% else %>
 <h1>No Posts</h1>
