@@ -1,9 +1,10 @@
+<a href="/posts/new">Submit a new link</a><br>
+
 <% if @post.any? %>
 <% @post.each do |post| %>
-<%= post.title %>
+<%= link_to "#{post.title}", post.url %><br>
+<%= post.url %>
 <% end %>
 <% else %>
 <h1>No Posts</h1>
 <% end %>
-
-<a href="/posts/new">Submit a new link</a>
