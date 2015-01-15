@@ -12,4 +12,18 @@ feature 'posts' do
 
 	end
 
+	context 'posts have been added' do
+
+		before do
+			Post.create(title: 'Google')
+		end
+
+		scenario 'display posts' do
+			visit '/posts'
+			expect(page).to have_content('Google')
+			expect(page).not_to have_content('No Posts')
+		end
+
+	end
+
 end

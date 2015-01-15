@@ -1,2 +1,9 @@
-No Posts
+<% if @post.any? %>
+<% @post.each do |post| %>
+<%= post.title %>
+<% end %>
+<% else %>
+<h1>No Posts</h1>
+<% end %>
+
 <a href="#">Submit a new link</a>
